@@ -1,4 +1,6 @@
 base:
   '*':
-    - webserver
+    - dependencies
+    - nginx
+    - uwsgi
     - database
