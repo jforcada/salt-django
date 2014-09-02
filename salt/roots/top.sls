@@ -3,4 +3,4 @@ base:
     - dependencies
     - nginx
     - uwsgi
-    - database
+    - postgres
