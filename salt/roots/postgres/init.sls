@@ -1,13 +1,21 @@
+# postgres/init.sls
+
 postgresql:
   pkg:
-    - name: postgresql-9.3
     - installed
+    - name: postgresql-9.3
   service:
     - running
     - enable: True
     - reload: True
     - requires:
-        - pkg: postgres
+        - pkg: postgresql
+
+postgresql-server-dev-9.3:
+  pkg:
+    - installed
+    - requires:
+        - pkg: postgresql
 
 create-db-user:
   postgres_user:
@@ -20,3 +28,13 @@ create-db-user:
     - password: vagrant
     - requires:
         - service: postgresql
+
+create-db:
+  postgres_database:
+    - present
+    - name: appdb
+    - db_user: vagrant
+    - db_password: vagrant
+    - user: vagrant
+    - requires:
+        - postgres_user: create-db-user

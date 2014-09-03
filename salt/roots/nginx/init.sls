@@ -1,3 +1,5 @@
+# nginx/init.sls
+
 include:
   - uwsgi
 
