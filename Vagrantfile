@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ## For masterless, mount your salt file root
   config.vm.synced_folder "salt/roots/", "/srv/salt/"
-  config.vm.synced_folder "/home/jforcada/work/cheapplay/cheapplay/", "/home/vagrant/app/"
+  config.vm.synced_folder "/home/jforcada/work/myapp/", "/home/vagrant/app/"
 
   ## Port forwarding
   config.vm.network "forwarded_port", guest: 80, host: 8080
